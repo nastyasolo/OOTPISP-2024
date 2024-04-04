@@ -10,10 +10,10 @@ class Library
 	char author[len];
 	int cost;
 public:
-	Library(); //конструктор без параметров
-	Library(const char*, const char*, int); //конструктор с параметрами
-	Library(const Library&); //конструктор копирования
-	~Library();     //деструктор
+	Library(); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
+	Library(const char*, const char*, int); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	Library(const Library&); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~Library();     //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	char* GetName();
 	char* GetAuthor();
 	int GetCost() const;

@@ -1,32 +1,32 @@
 #include "Library.h"
 
-//конструктор без параметров
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 Library::Library() {
-	strcpy(name, "Неизвестно");
-	strcpy(author, "Неизвестно");
+	strcpy(name, "РќРµРёР·РІРµСЃС‚РЅРѕ");
+	strcpy(author, "РќРµРёР·РІРµСЃС‚РЅРѕ");
 	SetCost(cost);
-	std::cout << "Вызван конструктор без параметров для объекта " << this << std::endl;
+	std::cout << "Р’С‹Р·РІР°РЅ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ РґР»СЏ РѕР±СЉРµРєС‚Р° " << this << std::endl;
 }
-//конструктор с параметрами
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Library::Library(const char* Name, const char* Author, int Cost)
 {
 	strcpy(name, Name);
 	strcpy(author, Author);
 	SetCost(Cost);
-	std::cout << "\nКонструктор с параметрами вызван для объекта " << this << std::endl;
+	std::cout << "\nРљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РІС‹Р·РІР°РЅ РґР»СЏ РѕР±СЉРµРєС‚Р° " << this << std::endl;
 }
-//конструктор копирования
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 Library::Library(const Library& library) 
 {
 	strcpy(name, library.name);
 	strcpy(author, library.author);
 	SetCost(library.cost);
-	std::cout << "Вызван конструктор копирования для объекта " << this << std::endl;
+	std::cout << "Р’С‹Р·РІР°РЅ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РґР»СЏ РѕР±СЉРµРєС‚Р° " << this << std::endl;
 }
-//деструктор
+//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 Library::~Library()
 {
-	std::cout << "Вызван деструктор для объекта " << this << std::endl;
+	std::cout << "Р’С‹Р·РІР°РЅ РґРµСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РѕР±СЉРµРєС‚Р° " << this << std::endl;
 }
 char* Library::GetName()
 {
@@ -60,8 +60,8 @@ void Library::Set(const char* Name, const char* Author, int Cost)
 }
 void Library::Print() const
 {
-	std::cout << "Название: \t" << name << std::endl;
-	std::cout << "Автор: \t" << author << std::endl;
-	std::cout << "Цена: \t" << cost << std::endl;
+	std::cout << "РќР°Р·РІР°РЅРёРµ: \t" << name << std::endl;
+	std::cout << "РђРІС‚РѕСЂ: \t" << author << std::endl;
+	std::cout << "Р¦РµРЅР°: \t" << cost << std::endl;
 	std::cout << std::endl;
 }
