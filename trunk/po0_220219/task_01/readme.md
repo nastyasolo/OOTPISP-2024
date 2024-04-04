@@ -3,7 +3,7 @@
 
 ## Классы и объекты в С++ ##
 
-## Вариант 6 ##
+## Вариант 5 ##
  
 
 ## Цель работы ##
@@ -12,15 +12,23 @@
 
 ### Блоки с кодом реализации конструкторов и деструктора ###
 ```c++
-Exam::Exam(const char *name, const int date, const int grade)
-	: _studentName(std::make_unique<std::string>(name)), _date(date), _grade(grade)
+Library::Library(const char* Name, const char* Author, int Cost)
 {
-	std::cout << "The constructor with parameters is called " << this << std::endl;
+	strcpy(name, Name);
+	strcpy(author, Author);
+	SetCost(Cost);
+	std::cout << "\nCalled a constructor with parameters for an object " << this << std::endl;
 }
-
-Exam::Exam()
+Library::Library(const Library& library) 
 {
-	std::cout << "A constructor without parameters is called " << this << std::endl;
+	strcpy(name, library.name);
+	strcpy(author, library.author);
+	SetCost(library.cost);
+	std::cout << "Called a copy constructor for an object" << this << std::endl;
+}
+Library::~Library()
+{
+	std::cout << "Called a destructor for an object" << this << std::endl;
 }
 
 ```
@@ -30,31 +38,19 @@ Exam::Exam()
 #### Указатель на объект ####
 
 ```c++
-a->Print();
+p->Print();
 ```
 
-#### В переменной а содержится адрес объекта. Затем вызывается метод Print класса Exam. Метод выведет в консоль поля объекта а. ####
+#### В переменной а содержится адрес объекта. Затем вызывается метод Print класса Library. Метод выведет в консоль поля объекта а. ####
 
 #### Указатель на функцию ####
 
 ```c++
-void (Exam::*pf)() const = &Exam::Print;
-
-std::array<Exam, 3> firstGroup = {
-    Exam("Victor", 1, 10),
-    Exam("Vitaliy", 1, 10),
-    Exam("Dima", 1, 10)};
-
-for (int i = 0; i < 3; i++)
-{
-    (firstGroup[i].*pf)();
-}
+void (Library:: * fptr)(const char*, const char*, int);
+fptr = &Library::Set;
+Library lib1;
+(lib1.*fptr)("Crime and Punishment", "Fedor Dostoevsky", 20000);
+lib1.Print();
 ```
 
-#### Адрес функции print записывается в указатель на функцию. Затем каждый элемент массива разыменовывает указатель и вызывает функцию Print ####
-
-
-
-#### Результат работы программы ####
-
-[img_01](images/img_01.png)
+#### Адрес функции Set записывается в указатель на функцию. Затем элемент lib1 разыменовывает указатель и вызывает функцию Set ####

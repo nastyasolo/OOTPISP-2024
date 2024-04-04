@@ -1,32 +1,27 @@
 #include "Library.h"
-
-//конструктор без параметров
 Library::Library() {
-	strcpy(name, "Неизвестно");
-	strcpy(author, "Неизвестно");
+	strcpy(name, "Unknown");
+	strcpy(author, "Unknown");
 	SetCost(cost);
-	std::cout << "Вызван конструктор без параметров для объекта " << this << std::endl;
+	std::cout << "Called a constructor without parameters for an object" << this << std::endl;
 }
-//конструктор с параметрами
 Library::Library(const char* Name, const char* Author, int Cost)
 {
 	strcpy(name, Name);
 	strcpy(author, Author);
 	SetCost(Cost);
-	std::cout << "\nКонструктор с параметрами вызван для объекта " << this << std::endl;
+	std::cout << "\nCalled a constructor with parameters for an object " << this << std::endl;
 }
-//конструктор копирования
 Library::Library(const Library& library) 
 {
 	strcpy(name, library.name);
 	strcpy(author, library.author);
 	SetCost(library.cost);
-	std::cout << "Вызван конструктор копирования для объекта " << this << std::endl;
+	std::cout << "Called a copy constructor for an object" << this << std::endl;
 }
-//деструктор
 Library::~Library()
 {
-	std::cout << "Вызван деструктор для объекта " << this << std::endl;
+	std::cout << "Called a destructor for an object" << this << std::endl;
 }
 char* Library::GetName()
 {
@@ -60,8 +55,8 @@ void Library::Set(const char* Name, const char* Author, int Cost)
 }
 void Library::Print() const
 {
-	std::cout << "Название: \t" << name << std::endl;
-	std::cout << "Автор: \t" << author << std::endl;
-	std::cout << "Цена: \t" << cost << std::endl;
+	std::cout << "Name: \t" << name << std::endl;
+	std::cout << "Author: \t" << author << std::endl;
+	std::cout << "Cost: \t" << cost << std::endl;
 	std::cout << std::endl;
 }
