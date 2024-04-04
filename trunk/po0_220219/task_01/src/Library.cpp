@@ -12,7 +12,7 @@ Library::Library(const char* Name, const char* Author, int Cost)
 {
 	strcpy(name, Name);
 	strcpy(author, Author);
-	SetCost(cost);
+	SetCost(Cost);
 	std::cout << "\nКонструктор с параметрами вызван для объекта " << this << std::endl;
 }
 //конструктор копирования

@@ -3,14 +3,16 @@
 using namespace std;
 int main() {
 	setlocale(LC_ALL, "rus");
-	Library lib[] = { Library("Воина и мир", "Л. Толстои", 10000),Library("Преступление и наказание","Федор Достоевскии",43000),
-	Library("Мастер и Маргарита","Михаил Булгаков",66000),Library(" "," ",2000) }; lib[2].SetName("Герои нашего времени");
-	lib[3].Set("Отцы и дети", "Иван Тургенев", 77000);
-	for (int i = 0; i < 4; i++) {
-		lib[i].Print();
-	}
-	Library lib4(lib[3]); lib4.Print();
-	Library lib5 = lib[0]; Library* lib6 = &lib5; lib6->Print();
+
+	void (Library:: * fptr)(const char*, const char*, int);
+	fptr = &Library::Set;
+	Library lib1;
+	lib1.Print();
+
+	Library lib4(lib1); lib4.Print();
+	(lib4.*fptr)("Преступление и наказание", "Федор Достоевскии", 20000);
+	Library lib5 = lib1;
+	Library* lib6 = &lib5; lib6->Print();
 	Library* p = new Library[2];
 	p->Set("Анна Каренина", "Лев Толстои", 90000);
 	p->Print();
