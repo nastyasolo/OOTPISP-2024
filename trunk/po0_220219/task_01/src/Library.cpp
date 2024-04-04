@@ -2,24 +2,24 @@
 
 //конструктор без параметров
 Library::Library() {
-	strcpy_s(name, "Неизвестно");
-	strcpy_s(author, "Неизвестно");
+	strcpy(name, "Неизвестно");
+	strcpy(author, "Неизвестно");
 	cost = 0;
 	std::cout << "Вызван конструктор без параметров для объекта " << this << std::endl;
 }
 //конструктор с параметрами
 Library::Library(const char* Name, const char* Author, int Cost)
 {
-	strcpy_s(name, Name);
-	strcpy_s(author, Author);
+	strcpy(name, Name);
+	strcpy(author, Author);
 	cost = Cost;
 	std::cout << "\nКонструктор с параметрами вызван для объекта " << this << std::endl;
 }
 //конструктор копирования
 Library::Library(const Library& library)
 {
-	strcpy_s(name, library.name);
-	strcpy_s(author, library.author);
+	strcpy(name, library.name);
+	strcpy(author, library.author);
 	cost = library.cost;
 	std::cout << "Вызван конструктор копирования для объекта " << this << std::endl;
 }
@@ -42,11 +42,11 @@ int Library::GetCost()
 }
 void Library::SetName(const char* Name)
 {
-	strcpy_s(name, Name);
+	strcpy(name, Name);
 }
 void Library::SetAuthor(const char* Author)
 {
-	strcpy_s(author, Author);
+	strcpy(author, Author);
 }
 void Library::SetCost(int Cost)
 {
@@ -54,8 +54,8 @@ void Library::SetCost(int Cost)
 }
 void Library::Set(const char* Name, const char* Author, int Cost)
 {
-	strcpy_s(name, Name);
-	strcpy_s(author, Author);
+	strcpy(name, Name);
+	strcpy(author, Author);
 	cost = Cost;
 }
 void Library::Print()
