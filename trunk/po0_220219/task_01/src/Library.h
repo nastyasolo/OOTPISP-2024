@@ -16,12 +16,12 @@ public:
 	~Library();     //деструктор
 	char* GetName();
 	char* GetAuthor();
-	int GetCost();
+	int GetCost() const;
 	void SetName(const char*);
 	void SetAuthor(const char*);
 	void SetCost(int);
 	void Set(const char*, const char*, int);
-	void Print();
+	void Print() const;
 };
 #endif
 
