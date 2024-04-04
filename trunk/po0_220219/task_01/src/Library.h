@@ -2,7 +2,7 @@
 #ifndef LibraryH
 #define LibraryH
 #include <iostream>
-
+#include <cstring>
 const int len = 40;
 class Library
 {
