@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 
+
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
 
@@ -15,7 +16,7 @@ protected:
 	static Organization* lastObject;
 public:
 	Organization();
-	Organization(const std::string& name);
+	Organization(std::string_view name);
 	virtual ~Organization();
 
 	static void printHead();
@@ -34,7 +35,7 @@ private:
 	int numberOfWorkers;
 public:
 	virtual ~InsuranceCompany();
-	InsuranceCompany(const std::string& name, int numberOfWorkers);
+	InsuranceCompany(std::string_view name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -43,7 +44,7 @@ private:
 	int numberOfWorkers;
 public:
 	virtual ~ShipbuildingCompany();
-	ShipbuildingCompany(const std::string& name, int numberOfWorkers);
+	ShipbuildingCompany(std::string_view name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -53,7 +54,7 @@ private:
 public:
 	virtual ~Factory();
 
-	Factory(const std::string& name, int numberOfWorkers);
+	Factory(std::string_view name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };

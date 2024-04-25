@@ -1,6 +1,7 @@
 #include "Organization.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 Organization::Organization() {
@@ -14,7 +15,7 @@ Organization::Organization() {
 	lastObject = this;
 	name = "name";
 }
-Organization::Organization(const string& name) {
+Organization::Organization(string_view name) {
 	if (head == nullptr) {
 		head = this;
 	}
@@ -38,6 +39,7 @@ void Organization::printHead() {
 	}
 }
 void Organization::show() {
+	cout << " " << endl;
 	Organization* ptr = head;
 	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
@@ -77,7 +79,7 @@ InsuranceCompany::~InsuranceCompany()
 
 }
 
-InsuranceCompany::InsuranceCompany(const string& name, int numberOfWorkers) {
+InsuranceCompany::InsuranceCompany(string_view name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -99,7 +101,7 @@ ShipbuildingCompany::~ShipbuildingCompany()
 	cout << "destructor" << endl;
 
 }
-ShipbuildingCompany::ShipbuildingCompany(const string& name, int numberOfWorkers) {
+ShipbuildingCompany::ShipbuildingCompany(string_view name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -124,7 +126,7 @@ Factory::~Factory()
 
 }
 
-Factory::Factory(const string& name, int numberOfWorkers) {
+Factory::Factory(string_view name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
