@@ -15,7 +15,7 @@ protected:
 	static Organization* lastObject;
 public:
 	Organization();
-	Organization(const std::string  name);
+	Organization(const std::string& name);
 	virtual ~Organization();
 
 	static void printHead();
@@ -34,7 +34,7 @@ private:
 	int numberOfWorkers;
 public:
 	virtual ~InsuranceCompany();
-	InsuranceCompany(const std::string name, int numberOfWorkers);
+	InsuranceCompany(const std::string& name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -43,7 +43,7 @@ private:
 	int numberOfWorkers;
 public:
 	virtual ~ShipbuildingCompany();
-	ShipbuildingCompany(const std::string name, int numberOfWorkers);
+	ShipbuildingCompany(const std::string& name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -53,7 +53,7 @@ private:
 public:
 	virtual ~Factory();
 
-	Factory(const std::string name, int numberOfWorkers);
+	Factory(const std::string& name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };

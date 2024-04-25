@@ -14,7 +14,7 @@ Organization::Organization() {
 	lastObject = this;
 	name = "name";
 }
-Organization::Organization(const string name) {
+Organization::Organization(const string& name) {
 	if (head == nullptr) {
 		head = this;
 	}
@@ -77,7 +77,7 @@ InsuranceCompany::~InsuranceCompany()
 
 }
 
-InsuranceCompany::InsuranceCompany(const string name, int numberOfWorkers) {
+InsuranceCompany::InsuranceCompany(const string& name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -99,7 +99,7 @@ ShipbuildingCompany::~ShipbuildingCompany()
 	cout << "destructor" << endl;
 
 }
-ShipbuildingCompany::ShipbuildingCompany(const string name, int numberOfWorkers) {
+ShipbuildingCompany::ShipbuildingCompany(const string& name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -124,7 +124,7 @@ Factory::~Factory()
 
 }
 
-Factory::Factory(const string name, int numberOfWorkers) {
+Factory::Factory(const string& name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
