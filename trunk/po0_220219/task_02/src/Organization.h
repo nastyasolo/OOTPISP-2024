@@ -2,7 +2,6 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
 
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
@@ -10,13 +9,15 @@ using namespace std;
 
 class Organization {
 protected:
-	string name;
+	std::string name;
 	Organization* next;
 	static Organization* head;
 	static Organization* lastObject;
 public:
 	Organization();
-	Organization(string  const name);
+	Organization(const std::string  name);
+	virtual ~Organization();
+
 	static void printHead();
 	virtual void show();
 	virtual void printVirtual();
@@ -25,15 +26,15 @@ public:
 	Organization* getNext();
 	void setNext(Organization* next);
 	Organization* getThis();
-	string getName() const;
+	std::string getName() const;
 };
 
 class InsuranceCompany : public Organization {
 private:
 	int numberOfWorkers;
 public:
-	InsuranceCompany();
-	InsuranceCompany(string name, int numberOfWorkers);
+	virtual ~InsuranceCompany();
+	InsuranceCompany(const std::string name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -41,8 +42,8 @@ class ShipbuildingCompany : public Organization {
 private:
 	int numberOfWorkers;
 public:
-	ShipbuildingCompany();
-	ShipbuildingCompany(string name, int numberOfWorkers);
+	virtual ~ShipbuildingCompany();
+	ShipbuildingCompany(const std::string name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };
@@ -50,8 +51,9 @@ class Factory : public Organization {
 private:
 	int numberOfWorkers;
 public:
-	Factory();
-	Factory(string name, int numberOfWorkers);
+	virtual ~Factory();
+
+	Factory(const std::string name, int numberOfWorkers);
 	void printVirtual() override;
 	void show() override;
 };

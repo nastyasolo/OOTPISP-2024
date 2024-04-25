@@ -3,10 +3,10 @@
 #include "Organization.h"
 using namespace std;
 int main() {
-	Organization comp1 = Organization("name1");
-	InsuranceCompany comp2 = InsuranceCompany("name2", 40);
-	ShipbuildingCompany comp3 = ShipbuildingCompany("name3", 15);
-	Factory comp4 = Factory("name4", 17);
+	auto comp1 = Organization("name1");
+	auto comp2 = InsuranceCompany("name2", 40);
+	auto comp3 = ShipbuildingCompany("name3", 15);
+	auto comp4 = Factory("name4", 17);
 	comp1.show();
 	cout << "------------------------------------------" << endl;
 

@@ -14,7 +14,7 @@ Organization::Organization() {
 	lastObject = this;
 	name = "name";
 }
-Organization::Organization(string const name) {
+Organization::Organization(const string name) {
 	if (head == nullptr) {
 		head = this;
 	}
@@ -25,16 +25,21 @@ Organization::Organization(string const name) {
 	lastObject = this;
 	this->name = name;
 }
+Organization::~Organization()
+{
+	cout << "destructor" << endl;
+
+}
 void Organization::printHead() {
 	Organization* ptr = head;
-	while (ptr != NULL) {
+	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
 		ptr = ptr->next;
 	}
 }
 void Organization::show() {
 	Organization* ptr = head;
-	while (ptr != NULL) {
+	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
 		ptr = ptr->next;
 	}
@@ -66,7 +71,13 @@ Organization* Organization::head = nullptr;
 Organization* Organization::lastObject = nullptr;
 
 
-InsuranceCompany::InsuranceCompany(string name, int numberOfWorkers) {
+InsuranceCompany::~InsuranceCompany()
+{
+	cout << "destructor" << endl;
+
+}
+
+InsuranceCompany::InsuranceCompany(const string name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -75,7 +86,7 @@ void InsuranceCompany::printVirtual() {
 }
 void InsuranceCompany::show() {
 	Organization* ptr = head;
-	while (ptr != NULL) {
+	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
@@ -83,7 +94,12 @@ void InsuranceCompany::show() {
 		}
 	}
 }
-ShipbuildingCompany::ShipbuildingCompany(string name, int numberOfWorkers) {
+ShipbuildingCompany::~ShipbuildingCompany()
+{
+	cout << "destructor" << endl;
+
+}
+ShipbuildingCompany::ShipbuildingCompany(const string name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -92,7 +108,7 @@ void ShipbuildingCompany::printVirtual() {
 }
 void ShipbuildingCompany::show() {
 	Organization* ptr = head;
-	while (ptr != NULL) {
+	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
@@ -102,7 +118,13 @@ void ShipbuildingCompany::show() {
 
 }
 
-Factory::Factory(string name, int numberOfWorkers) {
+Factory::~Factory()
+{
+	cout << "destructor" << endl;
+
+}
+
+Factory::Factory(const string name, int numberOfWorkers) {
 	this->name = name;
 	this->numberOfWorkers = numberOfWorkers;
 }
@@ -111,7 +133,7 @@ void Factory::printVirtual() {
 }
 void Factory::show() {
 	Organization* ptr = head;
-	while (ptr != NULL) {
+	while (ptr != nullptr) {
 		cout << ptr->getName() << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
