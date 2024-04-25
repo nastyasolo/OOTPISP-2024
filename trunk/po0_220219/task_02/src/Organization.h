@@ -2,7 +2,6 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
 
@@ -14,16 +13,16 @@ protected:
 	static Organization* lastObject;
 public:
 	Organization();
-	Organization(string name);
+	Organization(string  const name);
 	static void printHead();
 	virtual void show();
 	virtual void printVirtual();
-	void print();
+	void print() const;
 	Organization* getHead();
 	Organization* getNext();
 	void setNext(Organization* next);
 	Organization* getThis();
-	string getName();
+	string getName() const;
 };
 
 class InsuranceCompany : public Organization {

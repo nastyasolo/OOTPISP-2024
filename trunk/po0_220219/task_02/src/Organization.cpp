@@ -14,7 +14,7 @@ Organization::Organization() {
 	lastObject = this;
 	name = "name";
 }
-Organization::Organization(string name) {
+Organization::Organization(string const name) {
 	if (head == nullptr) {
 		head = this;
 	}
@@ -40,11 +40,11 @@ void Organization::show() {
 	}
 }
 void Organization::printVirtual() {
-	cout << "Это организация (виртуальная функция)" << endl;
+	cout << "Organization (virtual function)" << endl;
 }
 
-void Organization::print() {
-	cout << "Это организация" << endl;
+void Organization::print() const {
+	cout << "Organization" << endl;
 }
 
 Organization* Organization::getHead() {
@@ -59,7 +59,7 @@ void Organization::setNext(Organization* next) {
 Organization* Organization::getThis() {
 	return this;
 }
-string Organization::getName() {
+string Organization::getName()  const {
 	return name;
 }
 Organization* Organization::head = nullptr;
@@ -74,7 +74,7 @@ InsuranceCompany::InsuranceCompany(string name, int numberOfWorkers) {
 	this->numberOfWorkers = numberOfWorkers;
 }
 void InsuranceCompany::printVirtual() {
-	cout << "Это страховая компания(виртуальная функция)" << endl;
+	cout << "Insurance Company (virtual function)" << endl;
 }
 void InsuranceCompany::show() {
 	Organization* ptr = head;
@@ -95,7 +95,7 @@ ShipbuildingCompany::ShipbuildingCompany(string name, int numberOfWorkers) {
 	this->numberOfWorkers = numberOfWorkers;
 }
 void ShipbuildingCompany::printVirtual() {
-	cout << "Это судостроительная компания (виртуальная функция)" << endl;
+	cout << "Shipbuilding Company (virtual function)" << endl;
 }
 void ShipbuildingCompany::show() {
 	Organization* ptr = head;
@@ -117,7 +117,7 @@ Factory::Factory(string name, int numberOfWorkers) {
 	this->numberOfWorkers = numberOfWorkers;
 }
 void Factory::printVirtual() {
-	cout << "Это завод (виртуальная функция)" << endl;
+	cout << "Factory (virtual function)" << endl;
 }
 void Factory::show() {
 	Organization* ptr = head;
