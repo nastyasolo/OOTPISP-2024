@@ -15,7 +15,7 @@ Organization::Organization() {
 	lastObject = this;
 	name = "name";
 }
-Organization::Organization(string_view name) {
+Organization::Organization(string_view name1) {
 	if (head == nullptr) {
 		head = this;
 	}
@@ -24,7 +24,7 @@ Organization::Organization(string_view name) {
 		lastObject->setNext(this);
 	}
 	lastObject = this;
-	this->name = name;
+	name = name1;
 }
 Organization::~Organization()
 {
@@ -73,15 +73,9 @@ Organization* Organization::head = nullptr;
 Organization* Organization::lastObject = nullptr;
 
 
-InsuranceCompany::~InsuranceCompany()
-{
-	cout << "destructor" << endl;
-
-}
-
-InsuranceCompany::InsuranceCompany(string_view name, int numberOfWorkers) {
-	this->name = name;
-	this->numberOfWorkers = numberOfWorkers;
+InsuranceCompany::InsuranceCompany(string_view name1, int numberOfWorkers1) {
+	name = name1;
+	numberOfWorkers = numberOfWorkers1;
 }
 void InsuranceCompany::printVirtual() {
 	cout << "Insurance Company (virtual function)" << endl;
@@ -96,14 +90,9 @@ void InsuranceCompany::show() {
 		}
 	}
 }
-ShipbuildingCompany::~ShipbuildingCompany()
-{
-	cout << "destructor" << endl;
-
-}
-ShipbuildingCompany::ShipbuildingCompany(string_view name, int numberOfWorkers) {
-	this->name = name;
-	this->numberOfWorkers = numberOfWorkers;
+ShipbuildingCompany::ShipbuildingCompany(string_view name1, int numberOfWorkers1) {
+	name = name1;
+	numberOfWorkers = numberOfWorkers1;
 }
 void ShipbuildingCompany::printVirtual() {
 	cout << "Shipbuilding Company (virtual function)" << endl;
@@ -120,15 +109,10 @@ void ShipbuildingCompany::show() {
 
 }
 
-Factory::~Factory()
-{
-	cout << "destructor" << endl;
 
-}
-
-Factory::Factory(string_view name, int numberOfWorkers) {
-	this->name = name;
-	this->numberOfWorkers = numberOfWorkers;
+Factory::Factory(string_view name1, int numberOfWorkers1) {
+	name = name1;
+	numberOfWorkers = numberOfWorkers1;
 }
 void Factory::printVirtual() {
 	cout << "Factory (virtual function)" << endl;
