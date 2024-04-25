@@ -18,7 +18,6 @@ public:
 	Organization* next;
 	Organization();
 	Organization(std::string_view name);
-	~Organization();
 
 	static void printHead();
 	virtual void show();

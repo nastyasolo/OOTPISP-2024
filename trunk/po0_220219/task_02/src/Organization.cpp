@@ -26,11 +26,6 @@ Organization::Organization(string_view name1) {
 	lastObject = this;
 	name = name1;
 }
-Organization::~Organization()
-{
-	cout << "destructor" << endl;
-
-}
 void Organization::printHead() {
 	Organization* ptr = head;
 	while (ptr != nullptr) {
@@ -60,8 +55,8 @@ Organization* Organization::getHead() {
 Organization* Organization::getNext() {
 	return next;
 }
-void Organization::setNext(Organization* next) {
-	this->next = next;
+void Organization::setNext(Organization* next1) {
+	next = next1;
 }
 Organization* Organization::getThis() {
 	return this;
