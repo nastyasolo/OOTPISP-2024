@@ -2,8 +2,11 @@
 
 #include <string>
 #include <iostream>
+using namespace std;
+
 #ifndef ORGANIZATION_H
 #define ORGANIZATION_H
+
 
 class Organization {
 protected:
