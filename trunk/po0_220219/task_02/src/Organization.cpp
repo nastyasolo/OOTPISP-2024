@@ -68,9 +68,9 @@ Organization* Organization::head = nullptr;
 Organization* Organization::lastObject = nullptr;
 
 
-InsuranceCompany::InsuranceCompany(string_view name1, int numberOfWorkers1) {
+InsuranceCompany::InsuranceCompany(string_view name1, int numberOfWorkers1)
+	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
-	numberOfWorkers = numberOfWorkers1;
 }
 void InsuranceCompany::printVirtual() {
 	cout << "Insurance Company (virtual function)" << endl;
@@ -85,9 +85,9 @@ void InsuranceCompany::show() {
 		}
 	}
 }
-ShipbuildingCompany::ShipbuildingCompany(string_view name1, int numberOfWorkers1) {
+ShipbuildingCompany::ShipbuildingCompany(string_view name1, int numberOfWorkers1)
+	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
-	numberOfWorkers = numberOfWorkers1;
 }
 void ShipbuildingCompany::printVirtual() {
 	cout << "Shipbuilding Company (virtual function)" << endl;
@@ -105,9 +105,9 @@ void ShipbuildingCompany::show() {
 }
 
 
-Factory::Factory(string_view name1, int numberOfWorkers1) {
+Factory::Factory(string_view name1, int numberOfWorkers1)
+	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
-	numberOfWorkers = numberOfWorkers1;
 }
 void Factory::printVirtual() {
 	cout << "Factory (virtual function)" << endl;
