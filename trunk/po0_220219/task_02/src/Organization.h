@@ -18,6 +18,7 @@ public:
 	Organization* next;
 	Organization();
 	explicit Organization(std::string_view name);
+	virtual ~Organization() = default;
 
 	static void printHead();
 	virtual void show();
@@ -35,6 +36,8 @@ private:
 	int numberOfWorkers;
 public:
 	InsuranceCompany(std::string_view name, int numberOfWorkers);
+	virtual ~InsuranceCompany() = default;
+
 	void printVirtual() override;
 	void show() override;
 };
@@ -43,6 +46,8 @@ private:
 	int numberOfWorkers;
 public:
 	ShipbuildingCompany(std::string_view name, int numberOfWorkers);
+	virtual ~ShipbuildingCompany() = default;
+
 	void printVirtual() override;
 	void show() override;
 };
@@ -52,6 +57,8 @@ private:
 public:
 
 	Factory(std::string_view name, int numberOfWorkers);
+	virtual ~Factory() = default;
+
 	void printVirtual() override;
 	void show() override;
 };
