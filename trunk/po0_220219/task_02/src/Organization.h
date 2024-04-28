@@ -32,34 +32,35 @@ public:
 };
 
 class InsuranceCompany : public Organization {
-private:
-	int numberOfWorkers;
 public:
-	InsuranceCompany(std::string_view name, int numberOfWorkers);
+	InsuranceCompany(std::string_view name, const int numberOfWorkers);
 	~InsuranceCompany() final = default;
 
 	void printVirtual() override;
 	void show() override;
-};
-class ShipbuildingCompany : public Organization {
 private:
 	int numberOfWorkers;
+};
+class ShipbuildingCompany : public Organization {
 public:
-	ShipbuildingCompany(std::string_view name, int numberOfWorkers);
+	ShipbuildingCompany(std::string_view name, const int numberOfWorkers);
 	~ShipbuildingCompany() final = default;
 
 	void printVirtual() override;
 	void show() override;
-};
-class Factory : public Organization {
 private:
 	int numberOfWorkers;
+};
+class Factory : public Organization {
+
 public:
 
-	Factory(std::string_view name, int numberOfWorkers);
+	Factory(std::string_view name, const int numberOfWorkers);
 	~Factory() final = default;
 
 	void printVirtual() override;
 	void show() override;
+private:
+	int numberOfWorkers;
 };
 #endif

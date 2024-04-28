@@ -68,7 +68,7 @@ Organization* Organization::head = nullptr;
 Organization* Organization::lastObject = nullptr;
 
 
-InsuranceCompany::InsuranceCompany(string_view name1, int numberOfWorkers1)
+InsuranceCompany::InsuranceCompany(string_view name1, const int numberOfWorkers1)
 	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
 }
@@ -85,7 +85,7 @@ void InsuranceCompany::show() {
 		}
 	}
 }
-ShipbuildingCompany::ShipbuildingCompany(string_view name1, int numberOfWorkers1)
+ShipbuildingCompany::ShipbuildingCompany(string_view name1, const int numberOfWorkers1)
 	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
 }
@@ -105,7 +105,7 @@ void ShipbuildingCompany::show() {
 }
 
 
-Factory::Factory(string_view name1, int numberOfWorkers1)
+Factory::Factory(string_view name1, const int numberOfWorkers1)
 	: numberOfWorkers(numberOfWorkers1) {
 	name = name1;
 }
