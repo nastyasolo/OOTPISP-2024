@@ -17,7 +17,7 @@ public:
 	std::string name;
 	Organization* next;
 	Organization();
-	Organization(std::string_view name);
+	explicit Organization(std::string_view name);
 
 	static void printHead();
 	virtual void show();
