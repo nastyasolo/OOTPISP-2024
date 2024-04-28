@@ -78,7 +78,7 @@ void InsuranceCompany::printVirtual() {
 void InsuranceCompany::show() {
 	Organization* ptr = head;
 	while (ptr != nullptr) {
-		cout << ptr->getName() << endl;
+		cout << ptr->getName() << " - Number of Workers: " << numberOfWorkers << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
 			break;
@@ -95,7 +95,7 @@ void ShipbuildingCompany::printVirtual() {
 void ShipbuildingCompany::show() {
 	Organization* ptr = head;
 	while (ptr != nullptr) {
-		cout << ptr->getName() << endl;
+		cout << ptr->getName() << " - Number of Workers: " << numberOfWorkers << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
 			break;
@@ -103,6 +103,8 @@ void ShipbuildingCompany::show() {
 	}
 
 }
+
+
 
 
 Factory::Factory(string_view name1, const int numberOfWorkers1)
@@ -115,7 +117,7 @@ void Factory::printVirtual() {
 void Factory::show() {
 	Organization* ptr = head;
 	while (ptr != nullptr) {
-		cout << ptr->getName() << endl;
+		cout << ptr->getName() << " - Number of Workers: " << numberOfWorkers << endl;
 		ptr = ptr->getNext();
 		if (this->getNext() == ptr) {
 			break;
