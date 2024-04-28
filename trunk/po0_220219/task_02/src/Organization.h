@@ -36,7 +36,7 @@ private:
 	int numberOfWorkers;
 public:
 	InsuranceCompany(std::string_view name, int numberOfWorkers);
-	virtual ~InsuranceCompany() = default;
+	~InsuranceCompany() final = default;
 
 	void printVirtual() override;
 	void show() override;
@@ -46,7 +46,7 @@ private:
 	int numberOfWorkers;
 public:
 	ShipbuildingCompany(std::string_view name, int numberOfWorkers);
-	virtual ~ShipbuildingCompany() = default;
+	~ShipbuildingCompany() final = default;
 
 	void printVirtual() override;
 	void show() override;
@@ -57,7 +57,7 @@ private:
 public:
 
 	Factory(std::string_view name, int numberOfWorkers);
-	virtual ~Factory() = default;
+	~Factory() final = default;
 
 	void printVirtual() override;
 	void show() override;
