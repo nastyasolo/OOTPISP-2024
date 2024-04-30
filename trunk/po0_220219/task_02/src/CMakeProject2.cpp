@@ -8,14 +8,9 @@ int main() {
 	auto comp3 = ShipbuildingCompany("name3", 15);
 	auto comp4 = Factory("name4", 17);
 	comp1.show();
-	cout << "------------------------------------------" << endl;
-
 	comp2.show();
-	cout << "------------------------------------------" << endl;
 	comp3.show();
-	cout << "------------------------------------------" << endl;
 	comp4.show();
-	cout << "------------------------------------------" << endl;
 	Organization::printHead();
 
 	return 0;
