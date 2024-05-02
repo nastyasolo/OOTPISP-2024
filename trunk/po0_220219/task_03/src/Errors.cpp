@@ -1,8 +1,9 @@
 #include "Errors.h"
 
-bool BaseError::operator==(const BaseError& other) const {
+bool BaseError::operator==([[maybe_unused]]  const BaseError&  other) const {
     return false;
 }
+
 
 InvalidPointer::InvalidPointer(unsigned char* badAddr) : m_badAddr(badAddr) {}
 
