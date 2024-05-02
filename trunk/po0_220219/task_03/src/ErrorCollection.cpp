@@ -1,23 +1,16 @@
 #include "ErrorCollection.h"
 #include <iostream>
 
-
-ErrorCollection::ErrorCollection(int count) : m_count(count) {
-    m_errors = new BaseError * [count]();
+ErrorCollection::ErrorCollection(int count) {
+    m_errors.resize(count);
 }
 
-ErrorCollection::~ErrorCollection() {
-    for (int i = 0; i < m_count; ++i) {
-        delete m_errors[i];
-    }
-    delete[] m_errors;
-}
 BaseError* ErrorCollection::operator[](int index) const {
     try {
-        if (index < 0 || index >= m_count) {
+        if (index < 0 || index >= m_errors.size()) {
             throw InvalidIndex(index);
         }
-        return m_errors[index];
+        return m_errors[index].get();
     }
     catch (const InvalidIndex& e) {
         std::cerr << "Error: " << e.what() << std::endl;
@@ -25,16 +18,19 @@ BaseError* ErrorCollection::operator[](int index) const {
     }
 }
 
-BaseError*& ErrorCollection::operator[](int index) {
+std::unique_ptr<BaseError>& ErrorCollection::operator[](int index) {
     try {
-        if (index < 0 || index >= m_count) {
+        if (index < 0 || index >= m_errors.size()) {
             throw InvalidIndex(index);
         }
-        return m_errors[index];
+        return m_errors[index]; // Возвращаем std::unique_ptr по ссылке
     }
     catch (const InvalidIndex& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        static BaseError* nullPtr = nullptr;
+        std::cerr << "Ошибка: " << e.what() << std::endl;
+        static std::unique_ptr<BaseError> nullPtr = nullptr;
         return nullPtr;
     }
 }
+
+
+

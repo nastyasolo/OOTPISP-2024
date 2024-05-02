@@ -1,14 +1,15 @@
 #include <iostream>
+#include <memory> 
 #include "ErrorCollection.h"
 #include "Errors.h"
 
 int main() {
     ErrorCollection errors(10);
     try {
-        errors[0] = new InvalidPointer(nullptr);
-        errors[1] = new ListError();
-        errors[2] = new InvalidIndex(5);
-        errors[3] = new ListOverflow();
+        errors[0] = std::make_unique<InvalidPointer>(nullptr);
+        errors[1] = std::make_unique<ListError>();
+        errors[2] = std::make_unique<InvalidIndex>(5);
+        errors[3] = std::make_unique<ListOverflow>();
 
         for (int i = 0; i < 4; ++i) {
             std::cout << "Error " << i << ": ";

@@ -2,16 +2,18 @@
 #define ERROR_COLLECTION_H
 
 #include "Errors.h"
+#include <vector>
+#include <memory>
 
 class ErrorCollection {
-    BaseError** m_errors;
-    int m_count;
+    std::vector<std::unique_ptr<BaseError>> m_errors;
 public:
     ErrorCollection(int count);
-    ~ErrorCollection();
+    ~ErrorCollection() = default;
 
     BaseError* operator[] (int index) const;
-    BaseError*& operator[] (int index);
+    std::unique_ptr<BaseError>& operator[](int index);
+
 };
 
 #endif 
