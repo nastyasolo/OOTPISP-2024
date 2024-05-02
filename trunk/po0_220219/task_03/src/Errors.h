@@ -1,12 +1,14 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
+#include <iostream>
+
 class BaseError {
 public:
     virtual void Print() const = 0;
     virtual ~BaseError() = default;
 
-    virtual bool operator==(const BaseError& other) const = 0;
+    bool operator==(const BaseError& other) const; 
 };
 
 class InvalidPointer : public BaseError {
@@ -15,14 +17,14 @@ public:
     explicit InvalidPointer(unsigned char* badAddr);
     void Print() const override;
 
-    bool operator==(const BaseError& other) const override;
+    bool operator==(const BaseError& other) const;
 };
 
 class ListError : public BaseError {
 public:
     void Print() const override;
 
-    bool operator==(const BaseError& other) const override;
+    bool operator==(const BaseError& other) const;
 };
 
 class InvalidIndex : public BaseError {
@@ -30,17 +32,16 @@ class InvalidIndex : public BaseError {
 public:
     explicit InvalidIndex(int index);
     void Print() const override;
-
     const char* what() const noexcept;
 
-    bool operator==(const BaseError& other) const override;
+    bool operator==(const BaseError& other) const;
 };
 
 class ListOverflow : public BaseError {
 public:
     void Print() const override;
 
-    bool operator==(const BaseError& other) const override;
+    bool operator==(const BaseError& other) const;
 };
 
 #endif
