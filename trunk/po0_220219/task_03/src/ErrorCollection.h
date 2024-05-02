@@ -8,7 +8,7 @@
 class ErrorCollection {
     std::vector<std::unique_ptr<BaseError>> m_errors;
 public:
-    ErrorCollection(int count);
+    explicit ErrorCollection(int count);
     ~ErrorCollection() = default;
 
     BaseError* operator[] (int index) const;

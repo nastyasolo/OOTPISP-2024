@@ -4,20 +4,18 @@
 class BaseError {
 public:
     virtual void Print() const = 0;
-    virtual ~BaseError() {}
+    virtual ~BaseError() = default;
 
     virtual bool operator==(const BaseError& other) const = 0;
-    virtual bool operator!=(const BaseError& other) const = 0;
 };
 
 class InvalidPointer : public BaseError {
-    void* m_badAddr;
+    unsigned char* m_badAddr;
 public:
-    InvalidPointer(void* badAddr);
+    InvalidPointer(unsigned char* badAddr);
     void Print() const override;
 
     bool operator==(const BaseError& other) const override;
-    bool operator!=(const BaseError& other) const override;
 };
 
 class ListError : public BaseError {
@@ -25,7 +23,6 @@ public:
     void Print() const override;
 
     bool operator==(const BaseError& other) const override;
-    bool operator!=(const BaseError& other) const override;
 };
 
 class InvalidIndex : public BaseError {
@@ -37,7 +34,6 @@ public:
     const char* what() const noexcept;
 
     bool operator==(const BaseError& other) const override;
-    bool operator!=(const BaseError& other) const override;
 };
 
 class ListOverflow : public BaseError {
@@ -45,7 +41,6 @@ public:
     void Print() const override;
 
     bool operator==(const BaseError& other) const override;
-    bool operator!=(const BaseError& other) const override;
 };
 
 #endif

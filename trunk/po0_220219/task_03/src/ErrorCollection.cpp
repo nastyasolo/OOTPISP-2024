@@ -23,7 +23,7 @@ std::unique_ptr<BaseError>& ErrorCollection::operator[](int index) {
         if (index < 0 || index >= m_errors.size()) {
             throw InvalidIndex(index);
         }
-        return m_errors[index]; // Возвращаем std::unique_ptr по ссылке
+        return m_errors[index]; 
     }
     catch (const InvalidIndex& e) {
         std::cerr << "Ошибка: " << e.what() << std::endl;
