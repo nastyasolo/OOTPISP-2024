@@ -12,7 +12,7 @@ public:
 class InvalidPointer : public BaseError {
     unsigned char* m_badAddr;
 public:
-    InvalidPointer(unsigned char* badAddr);
+    explicit InvalidPointer(unsigned char* badAddr);
     void Print() const override;
 
     bool operator==(const BaseError& other) const override;
@@ -28,7 +28,7 @@ public:
 class InvalidIndex : public BaseError {
     int m_index;
 public:
-    InvalidIndex(int index);
+    explicit InvalidIndex(int index);
     void Print() const override;
 
     const char* what() const noexcept;
