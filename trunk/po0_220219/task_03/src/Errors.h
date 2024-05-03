@@ -16,6 +16,8 @@ class InvalidPointer : public BaseError {
 public:
     explicit InvalidPointer(unsigned char* badAddr);
     void Print() const override;
+    const char* what() const noexcept;
+
 
 };
 

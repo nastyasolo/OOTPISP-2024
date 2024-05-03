@@ -11,6 +11,11 @@ void InvalidPointer::Print() const {
     std::cout << "Invalid pointer error occurred!" << std::endl;
 }
 
+const char* InvalidPointer::what() const noexcept
+{
+    return "Invalid pointer specified.";
+}
+
 
 void ListError::Print() const {
     std::cout << "List error occurred!" << std::endl;
