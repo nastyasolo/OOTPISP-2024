@@ -22,7 +22,7 @@ int main() {
             std::cout << "Error 0 and Error 1 are not equal." << std::endl;
         }
 
-        if (*errors[2] != *errors[3]) {
+        if (!(*errors[2] == *errors[3])) {
             std::cout << "Error 2 and Error 3 are not equal." << std::endl;
         }
         else {

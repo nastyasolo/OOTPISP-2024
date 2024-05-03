@@ -17,14 +17,13 @@ public:
     explicit InvalidPointer(unsigned char* badAddr);
     void Print() const override;
 
-    bool operator==(const BaseError& other) const;
 };
+
 
 class ListError : public BaseError {
 public:
     void Print() const override;
 
-    bool operator==(const BaseError& other) const;
 };
 
 class InvalidIndex : public BaseError {
@@ -34,14 +33,12 @@ public:
     void Print() const override;
     const char* what() const noexcept;
 
-    bool operator==(const BaseError& other) const;
 };
 
 class ListOverflow : public BaseError {
 public:
     void Print() const override;
 
-    bool operator==(const BaseError& other) const;
 };
 
 #endif
