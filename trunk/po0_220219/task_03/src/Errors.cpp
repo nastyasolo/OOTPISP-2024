@@ -8,13 +8,9 @@ bool BaseError::operator==([[maybe_unused]]  const BaseError&  other) const {
 InvalidPointer::InvalidPointer(unsigned char* badAddr) : m_badAddr(badAddr) {}
 
 void InvalidPointer::Print() const {
-    std::cout << "Invalid pointer error occurred!" << std::endl;
+    std::cout << "Invalid pointer error occurred! Bad address: " << static_cast<void*>(m_badAddr) << std::endl;
 }
 
-const char* InvalidPointer::what() const noexcept
-{
-    return "Invalid pointer specified.";
-}
 
 
 void ListError::Print() const {
