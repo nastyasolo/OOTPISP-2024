@@ -8,11 +8,13 @@ class Time
 {
 public:
     Time() = default;
-    explicit Time(std::string time);
+    explicit Time(const std::string& time);
     ~Time() = default;
 
     Time& operator=(const Time& t) = default;
-    bool operator==(const Time& t) const;
+    
+    bool operator==(const Time& t) const = default;
+
 
     inline int GetMin() const { return minutes; };
     inline int GetSec() const { return seconds; };
