@@ -1,20 +1,14 @@
-# CMakeList.txt: проект CMake для CMakeProject5; включите исходный код и определения,
-# укажите здесь логику для конкретного проекта.
-#
+cmake_minimum_required(VERSION 3.15.0)
 
-# Включение горячей перезагрузки для компиляторов MSVC, если поддерживается.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
+project(LAB_05_220219)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-project ("test5")
+set(SOURCE_FILES main.cpp Time.cpp)
 
-# Добавьте источник в исполняемый файл этого проекта.
-add_executable (test5 "main.cpp" "Time.cpp" "Time.h" "Vector.h")
+set(HEADER_FILES Time.h Vector.h)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET test5 PROPERTY CXX_STANDARD 20)
-endif()
+set(ALL_SOURCES ${HEADER_FILSE}
+				${SOURCE_FILES})
 
-# TODO: Добавьте тесты и целевые объекты, если это необходимо.
+add_executable(${PROJECT_NAME} ${ALL_SOURCES})
