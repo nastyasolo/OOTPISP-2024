@@ -8,13 +8,15 @@ public:
     Vector(int s, T k);
     Vector(int s);
     Vector(const Vector<T>& a);
-    ~Vector() = default;
+    ~Vector();
     Vector& operator=(const Vector<T>& a);
     T& operator[](int index);
-    Vector operator*(const int k); 
+    Vector operator*(const int k);
     int operator()();
-    friend ostream& operator<< <>(ostream& out, const Vector<T>& a);
-    friend istream& operator>> <>(istream& in, Vector<T>& a);
+    template <class U>
+    friend ostream& operator<<(ostream& out, const Vector<U>& a);
+    template <class U>
+    friend istream& operator>>(istream& in, Vector<U>& a);
 
 private:
     int size;
@@ -46,6 +48,11 @@ Vector<T>::Vector(const Vector& a)
         data[i] = a.data[i];
 }
 
+template <class T>
+Vector<T>::~Vector()
+{
+    delete[] data;
+}
 
 template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& a)
@@ -71,7 +78,7 @@ T& Vector<T>::operator[](int index)
 }
 
 template <class T>
-Vector<T> Vector<T>::operator*(const int k) 
+Vector<T> Vector<T>::operator*(const int k)
 {
     Vector<T> temp(size);
     for (int i = 0; i < size; ++i)
