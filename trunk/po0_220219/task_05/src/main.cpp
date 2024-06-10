@@ -1,33 +1,28 @@
 #include <iostream>
-#include "Vector.h" 
+#include "Vector.h"
 #include "Time.h"
 
-using namespace std;
-
-int main()
-{
+int main() {
     Time currentTime;
-    cout << "Enter current time (minutes seconds): ";
-    cin >> currentTime;
-    cout << "Current time: " << currentTime << endl;
+    std::cout << "Enter current time (minutes seconds): ";
+    std::cin >> currentTime;
+    std::cout << "Current time: " << currentTime << std::endl;
 
-    Vector<Time> timeVectorA(5, currentTime);
-    cout << "Enter values for time vector A (5 elements): ";
-    cin >> timeVectorA;
-    cout << "Time vector A: " << timeVectorA << endl;
+    Vector timeVectorA(5, currentTime);
+    std::cout << "Enter values for time vector A (5 elements): ";
+    std::cin >> timeVectorA;
+    std::cout << "Time vector A: " << timeVectorA << std::endl;
 
-    Vector<Time> timeVectorB(10, currentTime);
-    cout << "Time vector B (size 10): " << timeVectorB << endl;
+    Vector timeVectorB(10, currentTime);
+    std::cout << "Time vector B (size 10): " << timeVectorB << std::endl;
 
     timeVectorB = timeVectorA;
-    cout << "Time vector B after assignment: " << timeVectorB << endl;
+    std::cout << "Time vector B after assignment: " << timeVectorB << std::endl;
+    std::cout << "Value of time vector A at index 2: " << timeVectorA[2] << std::endl;
+    std::cout << "Length of time vector A: " << timeVectorA() << std::endl;
 
-    cout << "Value of time vector A at index 2: " << timeVectorA[2] << endl;
-
-    cout << "Length of time vector A: " << timeVectorA() << endl;
-
-    Vector<Time> timeVectorC = timeVectorA * 10;
-    cout << "Multiplying time vector A by 10: " << timeVectorC << endl;
+    Vector timeVectorC = timeVectorA * 10;
+    std::cout << "Multiplying time vector A by 10: " << timeVectorC << std::endl;
 
     return 0;
 }

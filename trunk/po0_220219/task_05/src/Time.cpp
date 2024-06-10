@@ -1,14 +1,20 @@
-#include "Time.h" 
-
-Time::Time(void) : min(0), sec(0) {}
+#include "Time.h"
 
 Time::Time(int m, int s) : min(m), sec(s) {}
 
-Time::Time(const Time& t) : min(t.min), sec(t.sec) {}
-
-Time Time::operator*(int k) {
+Time Time::operator*(int k) const {
     int totalSeconds = (min * 60 + sec) * k;
-    int resultMin = totalSeconds / 60;
-    int resultSec = totalSeconds % 60;
-    return Time(resultMin, resultSec);
+    int newMin = totalSeconds / 60;
+    int newSec = totalSeconds % 60;
+    return Time(newMin, newSec);
+}
+
+std::ostream& operator<<(std::ostream& out, const Time& t) {
+    out << t.min << ":" << t.sec;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Time& t) {
+    in >> t.min >> t.sec;
+    return in;
 }
